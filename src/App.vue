@@ -95,7 +95,7 @@
 <script>
   
   import Vue from 'vue'
-  import VueResource from 'vue-resource'
+  import VueResource from "vue-resource"
   Vue.use(VueResource)
   
   import _uniqueId from 'lodash/uniqueId'
@@ -130,10 +130,10 @@
       updatePrefs(key) {
         localStorage.setItem(key, JSON.stringify(this[key]))
       },
-      fetchSchedule() {
+      fetchSchedule: function () {
         this.loading = true
         // Fetch weekly schedule from API to cache
-        let url = (this.displayDate === this.today) ? '/api/week' : `/api/week/${ this.displayDate }` 
+        let url = (this.displayDate === this.today) ? '/api/week' : '/api/week/${this.displayDate}'
         Vue.http.get(url, {
           timeout: 10000
         }).then(response => {

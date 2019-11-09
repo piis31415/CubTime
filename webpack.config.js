@@ -1,3 +1,5 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 let path = require('path')
 let webpack = require('webpack')
 let htmlPlugin = require('html-webpack-plugin')
@@ -33,7 +35,8 @@ module.exports = {
       minify: { collapseWhitespace: true },
       template: 'index.html',
       hash: true
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 }
 

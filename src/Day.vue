@@ -212,7 +212,7 @@
             return
           }
           // Otherwise, check next block
-          else continue
+          else
         }
         // If the school day is over, reset the countdown--but don't queue it
         // changes to _schedule update it automatically
