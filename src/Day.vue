@@ -1,6 +1,6 @@
 <style lang="stylus">
   
-  @import 'global'
+  @import "global"
   
   .dayContainer
     width: 180px
@@ -212,7 +212,7 @@
             return
           }
           // Otherwise, check next block
-          else
+          else continue
         }
         // If the school day is over, reset the countdown--but don't queue it
         // changes to _schedule update it automatically
@@ -244,9 +244,9 @@
           // For example: saved class name, "Block 2", or "Advisory"
           let blockText = block.number ? (this.classes[block.number] || `Block ${block.number}`) : block.name
           // Put it all together for the title bar text!
-          title = `${countdown} ${modifier} ${blockText} \u2022 BearTime`
+          title = `${countdown} ${modifier} ${blockText} \u2022 CubTime`
         }
-        document.title = title || 'BearTime'
+        document.title = title || 'CubTime'
       }
     },
     computed: {

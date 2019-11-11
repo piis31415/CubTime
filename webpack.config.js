@@ -29,6 +29,14 @@ module.exports = {
           'css-loader',
           'resolve-url-loader'
         ]
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
       }
     ]
   },
@@ -58,11 +66,11 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    })//,
+//    new webpack.optimize.UglifyJsPlugin({
+//      compress: {
+//        warnings: false
+//      }
+//    })
   ])
 }

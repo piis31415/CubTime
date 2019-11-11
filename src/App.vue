@@ -1,6 +1,6 @@
 <style lang="stylus">
   
-  @import 'global'
+  @import "global"
   
   html, body
     width: 100%
@@ -83,7 +83,7 @@
         <div id="spinner"></div>
       </div>
       <div v-else id="schedule">
-        <h1>BearTime</h1>
+        <h1>CubTime</h1>
         <transition-group name="fade" tag="div" id="week" appear>
           <Day v-for="date in week" :date="date" :key="date"></Day>
         </transition-group>
