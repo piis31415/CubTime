@@ -13,7 +13,7 @@ export default {
   classes: restorePrefs('classes', { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' }),
   // Design constants
   sizing: 1.2,
-  colors: ['#3F51B5', '#1976D2', '#039BE5', '#00BCD4', '#009688', '#43A047', '#7CB342'],
+  colors: ['#22a353', '#1e8e48', '#19793e', '#156433', '#114f28', '#0c3a1e', '#082513'],
   // Check if client is crawler so it doesn't see a countdown in the title!
   isCrawler: /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent),
   // Set default dates to determine week to display

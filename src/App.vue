@@ -9,7 +9,7 @@
     min-height: 700px
     margin: 0
     padding: 0
-    background: #262626
+    background: linear-gradient(#4551c5, #272f7e)
     font-styling()
     overflow-x: auto
     overflow-y: auto
@@ -87,7 +87,7 @@
         <transition-group name="fade" tag="div" id="week" appear>
           <Day v-for="date in week" :date="date" :key="date"></Day>
         </transition-group>
-        <footer>Kincaid O'Neil &middot; Saji Champlin</footer>
+        <footer>Kincaid O'Neil, Saji Champlin &middot; Jason Wang, Tyler May</footer>
       </div>
     </transition>
   </div>
