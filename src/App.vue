@@ -9,7 +9,7 @@
     min-height: 700px
     margin: 0
     padding: 0
-    background: linear-gradient(#4551c5, #272f7e)
+    background: linear-gradient(#4551c5, #373f8e)
     font-styling()
     overflow-x: auto
     overflow-y: auto
@@ -103,6 +103,8 @@
   
   import store from './store'
   import Day from './Day.vue'
+
+  import database from './database.json'
   
   export default {
     components: { Day },
@@ -133,11 +135,12 @@
       fetchSchedule: function () {
         this.loading = true
         // Fetch weekly schedule from API to cache
-        let url = (this.displayDate === this.today) ? '/api/week' : '/api/week/${this.displayDate}'
-        Vue.http.get(url, {
-          timeout: 10000
-        }).then(response => {
-          let schedule = response.json()
+        //let url = (this.displayDate === this.today) ? 'api/week' : 'api/week/${this.displayDate}'
+        //Vue.http.get(url, {
+        //  timeout: 10000
+        //}).then(response => {
+
+          let schedule = database
           // Add a unique key to every block for animations
           // Lunches and A/B classes during lunch have the same ID
           for (let day in schedule) {
@@ -150,7 +153,7 @@
           }
           this.schedule = schedule
           this.loading = false
-        })
+        //})
       }
     },
     computed: {

@@ -11,6 +11,7 @@ export default {
   // Restore saved preferences to overwrite default lunches and classes
   lunches: restorePrefs('lunches', { 'Monday': 1, 'Tuesday': 1, 'Wednesday': 1, 'Thursday': 1, 'Friday': 1 }),
   classes: restorePrefs('classes', { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '' }),
+  letters: restorePrefs('letters', { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G'}),
   // Design constants
   sizing: 1.2,
   colors: ['#22a353', '#1e8e48', '#19793e', '#156433', '#114f28', '#0c3a1e', '#082513'],

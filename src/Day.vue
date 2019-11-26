@@ -120,7 +120,7 @@
                 <span class="lunch" @click="toggleLunch(date, block.lunch)"
                   title="Toggle Lunch">{{ block.lunch === 1 ? 'First' : 'Second' }}</span> Lunch
               </span>
-              <span class="blockNum" v-if="block.number">{{ block.number }}</span>
+              <span class="blockNum" v-if="block.number">{{ this.letters[block.number - 1] }}</span>
               <input class="blockInput" v-if="!block.name" v-model="classes[block.number]"
                 :autofocus="block._id === firstBlock && isDisplayDate && !classes[block.number]" />
             </header>
@@ -242,7 +242,7 @@
           let modifier = this.countdown.before ? 'until' : 'in'
           // Get text for current block
           // For example: saved class name, "Block 2", or "Advisory"
-          let blockText = block.number ? (this.classes[block.number] || `Block ${block.number}`) : block.name
+          let blockText = block.number ? (this.classes[block.number] || `Block ${this.letters[block.number - 1]}`) : block.name
           // Put it all together for the title bar text!
           title = `${countdown} ${modifier} ${blockText} \u2022 CubTime`
         }
