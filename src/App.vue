@@ -137,7 +137,7 @@
         this.loading = true
         // Fetch weekly schedule from API to cache
         // let url = (this.displayDate === this.today) ? 'api/week' : 'api/week/${this.displayDate}'
-        Vue.http.get('https://firebasestorage.googleapis.com/v0/b/cub-time.appspot.com/o/database.json?alt=media&token=08dbcca7-34a2-49d4-9c4a-ca0cc4173624', {
+        Vue.http.get('https://firebasestorage.googleapis.com/v0/b/cub-time.appspot.com/o/database.json?alt=media&token=3a77d4ed-2c1a-49bc-94fd-fc639b98ba0d', {
           timeout: 10000
         }).then(response => {
           response.json().then(data => {
