@@ -111,12 +111,12 @@
     data: () => store,
     watch: {
       // Update prefs in localStorage when bindings change
-      'lunches': {
-        handler() {
-          this.updatePrefs('lunches')
-        },
-        deep: true
-      },
+      //'lunches': {
+      //  handler() {
+      //    this.updatePrefs('lunches')
+      //  },
+      //  deep: true
+      //},
       'classes': {
         handler() {
           this.updatePrefs('classes')
@@ -129,9 +129,11 @@
       this.fetchSchedule()
     },
     methods: {
+
       updatePrefs(key) {
         localStorage.setItem(key, JSON.stringify(this[key]))
       },
+
       fetchSchedule: function () {
         this.loading = true
         // Fetch weekly schedule from API to cache
@@ -140,15 +142,16 @@
         //  timeout: 10000
         //}).then(response => {
 
-          let schedule = database
+        let schedule = require('./database.json')
           // Add a unique key to every block for animations
           // Lunches and A/B classes during lunch have the same ID
           for (let day in schedule) {
-            let lunchId = _uniqueId()
+            //let lunchId = _uniqueId()
             let classId = _uniqueId()
             for (let block of schedule[day]) {
-              if (block.lunch) block._id = block.number ? classId : lunchId
-              else block._id = _uniqueId()
+              //if (block.lunch) block._id = block.number ? classId : lunchId
+              //else
+              block._id = _uniqueId()
             }
           }
           this.schedule = schedule

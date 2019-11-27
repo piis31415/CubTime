@@ -53,9 +53,9 @@
             .blockName
               flex-grow: 1
               
-              .lunch
-                text-decoration: underline
-                cursor: pointer
+              //.lunch
+              //  text-decoration: underline
+              //  cursor: pointer
                 
             .blockNum
               margin: 0 6px 0 0
@@ -115,11 +115,7 @@
           :style="{height: String(block.duration * sizing) + 'px'}">
           <div class="block" :style="{background: colors[block.number - 1]}">
             <header class="blockHeader" v-if="block.duration >= 20">
-              <span class="blockName" v-if="block.name && !block.lunch">{{ block.name }}</span>
-              <span class="blockName" v-if="block.name && block.lunch">
-                <span class="lunch" @click="toggleLunch(date, block.lunch)"
-                  title="Toggle Lunch">{{ block.lunch === 1 ? 'First' : 'Second' }}</span> Lunch
-              </span>
+
               <span class="blockNum" v-if="block.number">{{ this.letters[block.number - 1] }}</span>
               <input class="blockInput" v-if="!block.name" v-model="classes[block.number]"
                 :autofocus="block._id === firstBlock && isDisplayDate && !classes[block.number]" />
@@ -161,10 +157,10 @@
       this.getCountdown()
     },
     methods: {
-      toggleLunch(date) {
-        let day = moment(date, 'YYYY-MM-DD').format('dddd')
-        this.lunches[day] = (this.lunches[day] === 1) ? 2 : 1
-      },
+      //toggleLunch(date) {
+       // let day = moment(date, 'YYYY-MM-DD').format('dddd')
+      //  this.lunches[day] = (this.lunches[day] === 1) ? 2 : 1
+      //},
       getCountdown() {
         // Only run countdown for current day
         if (!this.isToday) return
@@ -256,10 +252,10 @@
         // Return a new object for parsed scheduled so it doesn't mutate original
         if (!this.loading) {
           let day = moment(this.date, 'YYYY-MM-DD').format('dddd')
-          schedule = this.schedule[this.date].filter(block => {
+          schedule = this.schedule[this.date]//.filter(block => {
             // Remove all blocks where the lunch isn't same the as set preference
-            return !block.lunch || (block.lunch === this.lunches[day])
-          })
+            //return !block.lunch || (block.lunch === this.lunches[day])
+          //})
         }
         return schedule
       },
