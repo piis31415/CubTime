@@ -1,6 +1,6 @@
 [
   {
-    "origin": ["http://localhost:8080"],
+    "origin": ["http://localhost:8080", "https://cub-time.web.app/", "https://cub-time.firebaseapp.com/"],
     "method": ["GET"],
     "maxAgeSeconds": 3600
   }

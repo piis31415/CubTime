@@ -116,7 +116,7 @@
           <div class="block" :style="{background: colors[block.number - 1]}">
             <header class="blockHeader" v-if="block.duration >= 20">
 
-              <span class="blockNum" v-if="block.number">{{ block.number }}</span>
+              <span class="blockNum" v-if="block.number">{{ block.letter }}</span>
               <input class="blockInput" v-if="!block.name" v-model="classes[block.number]"
                 :autofocus="block._id === firstBlock && isDisplayDate && !classes[block.number]" />
             </header>
