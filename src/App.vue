@@ -104,19 +104,20 @@
   import store from './store'
   import Day from './Day.vue'
 
-  import database from './database.json'
-  
+
+  // import database from './database.json'
+
   export default {
     components: { Day },
     data: () => store,
     watch: {
       // Update prefs in localStorage when bindings change
-      //'lunches': {
-      //  handler() {
-      //    this.updatePrefs('lunches')
-      //  },
-      //  deep: true
-      //},
+      'lunches': {
+        handler() {
+          this.updatePrefs('lunches')
+        },
+        deep: true
+      },
       'classes': {
         handler() {
           this.updatePrefs('classes')
@@ -129,34 +130,31 @@
       this.fetchSchedule()
     },
     methods: {
-
       updatePrefs(key) {
         localStorage.setItem(key, JSON.stringify(this[key]))
       },
-
       fetchSchedule: function () {
         this.loading = true
         // Fetch weekly schedule from API to cache
-        //let url = (this.displayDate === this.today) ? 'api/week' : 'api/week/${this.displayDate}'
-        //Vue.http.get(url, {
-        //  timeout: 10000
-        //}).then(response => {
-
-        let schedule = require('./database.json')
-          // Add a unique key to every block for animations
-          // Lunches and A/B classes during lunch have the same ID
-          for (let day in schedule) {
-            //let lunchId = _uniqueId()
-            let classId = _uniqueId()
-            for (let block of schedule[day]) {
-              //if (block.lunch) block._id = block.number ? classId : lunchId
-              //else
-              block._id = _uniqueId()
+        // let url = (this.displayDate === this.today) ? 'api/week' : 'api/week/${this.displayDate}'
+        Vue.http.get('https://firebasestorage.googleapis.com/v0/b/cub-time.appspot.com/o/database.json?alt=media&token=08dbcca7-34a2-49d4-9c4a-ca0cc4173624', {
+          timeout: 10000
+        }).then(response => {
+          response.json().then(data => {
+            // Add a unique key to every block for animations
+            // Lunches and A/B classes during lunch have the same ID
+            for (let day in data) {
+              let lunchId = _uniqueId()
+              let classId = _uniqueId()
+              for (let block of data[day]) {
+                if (block.lunch) block._id = block.number ? classId : lunchId
+                else block._id = _uniqueId()
+              }
             }
-          }
-          this.schedule = schedule
-          this.loading = false
-        //})
+            this.schedule = data
+            this.loading = false
+          })
+        })
       }
     },
     computed: {

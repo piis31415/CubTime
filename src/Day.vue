@@ -249,10 +249,10 @@
       // Filter schedule based on lunches
       _schedule() {
         let schedule = []
-        // Return a new object for parsed scheduled so it doesn't mutate original
+        // Return a new object for parsed schedule so it doesn't mutate original
         if (!this.loading) {
           let day = moment(this.date, 'YYYY-MM-DD').format('dddd')
-          schedule = this.schedule[this.date]//.filter(block => {
+          schedule = this.schedule[day]//.filter(block => {
             // Remove all blocks where the lunch isn't same the as set preference
             //return !block.lunch || (block.lunch === this.lunches[day])
           //})

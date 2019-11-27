@@ -59,7 +59,7 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // Add Google Analytics code during production
-  module.exports.entry.push('./src/ga.js')
+  // module.exports.entry.push('./src/ga.js')
   // Minify JavaScript
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
