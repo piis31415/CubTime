@@ -105,7 +105,7 @@
   import Day from './Day.vue'
 
 
-  // import database from './database.json'
+
 
   export default {
     components: { Day },
