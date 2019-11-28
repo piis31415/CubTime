@@ -115,12 +115,12 @@
           :style="{height: String(block.duration * sizing) + 'px'}">
           <div class="block" :style="{background: colors[block.number - 1]}">
             <header class="blockHeader" v-if="block.duration >= 20">
-
               <span class="blockNum" v-if="block.number">{{ block.letter }}</span>
+              <span class="blockNum" v-if="!block.number">{{ block.name }}</span>
               <input class="blockInput" v-if="!block.name" v-model="classes[block.number]"
-                :autofocus="block._id === firstBlock && isDisplayDate && !classes[block.number]" />
+                :autofocus="block._id ===  isDisplayDate && !classes[block.number]" />
             </header>
-            <div class="classTimes" v-if="block.duration >= 40">
+            <div class="classTimes" v-if="block.duration >= 35">
               {{ block.start }}-{{ block.end }}
             </div>
           </div>
@@ -165,7 +165,7 @@
         // Only run countdown for current day
         if (!this.isToday) return
         // Update current date
-        let now = moment()
+        let now = moment()// Add ".subtract(5.9,'hours')" or something similar to test website at different times
         this.today = now.format('YYYY-MM-DD')
         // If a countdown is already in progress, simply increment it down
         // instead of doing a full refresh
@@ -238,7 +238,7 @@
           let modifier = this.countdown.before ? 'until' : 'in'
           // Get text for current block
           // For example: saved class name, "Block 2", or "Advisory"
-          let blockText = block.number ? (this.classes[block.number] || `Block ${block.number}`) : block.name
+          let blockText = block.number ? (this.classes[block.number] || `Block ${block.letter}`) : block.name
           // Put it all together for the title bar text!
           title = `${countdown} ${modifier} ${blockText} \u2022 CubTime`
         }
