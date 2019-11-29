@@ -14,7 +14,7 @@ export default {
   letters: restorePrefs('letters', { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G'}),
   // Design constants
   sizing: 1.2,
-  colors: ['#22a353', '#1e8e48', '#19793e', '#156433', '#114f28', '#0c3a1e', '#082513'],
+  colors: ['#71d282', '#40b76a', '#35955A', '#247141', '#15542C', '#0f3c20', '#04210F'],
   // Check if client is crawler so it doesn't see a countdown in the title!
   isCrawler: /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent),
   // Set default dates to determine week to display

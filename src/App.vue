@@ -9,7 +9,7 @@
     min-height: 700px
     margin: 0
     padding: 0
-    background: linear-gradient(#4551c5, #373f8e)
+    background: linear-gradient(#5561D5, #171f6e)
     font-styling()
     overflow-x: auto
     overflow-y: auto
@@ -135,9 +135,10 @@
       },
       fetchSchedule: function () {
         this.loading = true
+        let url = 'https://firebasestorage.googleapis.com/v0/b/cub-time.appspot.com/o/database.json?alt=media'
+
         // Fetch weekly schedule from API to cache
-        // let url = (this.displayDate === this.today) ? 'api/week' : 'api/week/${this.displayDate}'
-        Vue.http.get('https://firebasestorage.googleapis.com/v0/b/cub-time.appspot.com/o/database.json?alt=media', {
+        Vue.http.get(url, {
           timeout: 10000
         }).then(response => {
           response.json().then(data => {

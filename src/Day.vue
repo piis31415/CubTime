@@ -80,9 +80,10 @@
         .classTimes
           margin: 0 6px
           font-size: 12px
+          overflow: hidden
           
       .countdown
-        flex-basis: 80px
+        flex-basis: 90px
         flex-shrink: 0
         display: flex
         justify-content: center
@@ -118,10 +119,10 @@
               <span class="blockNum" v-if="block.number">{{ block.letter }}</span>
               <span class="blockNum" v-if="!block.number">{{ block.name }}</span>
               <input class="blockInput" v-if="!block.name" v-model="classes[block.number]"
-                :autofocus="block._id ===  isDisplayDate && !classes[block.number]" />
+                :autofocus="block._id === isDisplayDate && !classes[block.number]" />
             </header>
             <div class="classTimes" v-if="block.duration >= 35">
-              {{ block.start }}-{{ block.end }}
+              {{ block.start }} - {{ block.end }}
             </div>
           </div>
           <transition name="fade" mode="in-out">
@@ -165,7 +166,7 @@
         // Only run countdown for current day
         if (!this.isToday) return
         // Update current date
-        let now = moment()// Add ".subtract(5.9,'hours')" or something similar to test website at different times
+        let now = moment()// add ".add(3, 'days')" or ".subtract(5.9,'hours')" or something similar to test website at different times
         this.today = now.format('YYYY-MM-DD')
         // If a countdown is already in progress, simply increment it down
         // instead of doing a full refresh
